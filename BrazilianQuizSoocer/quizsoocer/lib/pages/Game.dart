@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizsoocer/model/Questao_model.dart';
 
 class Game extends StatefulWidget {
   @override
@@ -6,6 +7,27 @@ class Game extends StatefulWidget {
 }
 
 class _GameState extends State<Game> {
+  var _pergunta = 0;
+  var _somaTotalPts = 0;
+
+  String perguntaAtual = '';
+
+  final List<Map<String, Object>> perguntas = [
+    {
+      'texto': 'Pergunta',
+      'respostas': [
+        {'texto': 'Opcao01', 'nota': 10},
+        {'texto': 'Opcao02', 'nota': 12},
+        {'texto': 'Opcao03', 'nota': 14},
+        {'texto': 'Opcao04', 'nota': 16},
+      ]
+    },
+  ];
+
+  void aPergunta() {}
+
+  void perguntaRespondida() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +39,7 @@ class _GameState extends State<Game> {
                   padding: EdgeInsets.only(left: 30, top: 20),
                   child: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_back_ios_new_rounded,
                         color: Color(0xff2D19CB),
                         size: 36,
@@ -30,24 +52,14 @@ class _GameState extends State<Game> {
                 'assets/img/Component3.png',
               ),
             ),
-            const Text(
-              'Pergunta #01',
-              style: TextStyle(
+            Text(
+              'Pergunta #${_pergunta + 1}',
+              style: const TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Padding(
-              padding:
-                  EdgeInsets.only(left: 40, right: 40, top: 15, bottom: 30),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit ?',
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
+            Questao(perguntaAtual = perguntas[_pergunta].cast()['texto']),
             Column(
               children: [
                 Padding(
