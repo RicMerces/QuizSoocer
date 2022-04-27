@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizsoocer/model/Opcoes_model.dart';
 import 'package:quizsoocer/model/Questao_model.dart';
 
 class Game extends StatefulWidget {
@@ -9,6 +10,7 @@ class Game extends StatefulWidget {
 class _GameState extends State<Game> {
   var _pergunta = 0;
   var _somaTotalPts = 0;
+  // var alterarCor = false;
 
   String perguntaAtual = '';
 
@@ -22,11 +24,70 @@ class _GameState extends State<Game> {
         {'texto': 'Opcao04', 'nota': 16},
       ]
     },
+    {
+      'texto': 'Pergunta',
+      'respostas': [
+        {'texto': 'Opcao01', 'nota': 10},
+        {'texto': 'Opcao02', 'nota': 12},
+        {'texto': 'Opcao03', 'nota': 14},
+        {'texto': 'Opcao04', 'nota': 16},
+      ]
+    },
+    {
+      'texto': 'Pergunta',
+      'respostas': [
+        {'texto': 'Opcao01', 'nota': 10},
+        {'texto': 'Opcao02', 'nota': 12},
+        {'texto': 'Opcao03', 'nota': 14},
+        {'texto': 'Opcao04', 'nota': 16},
+      ]
+    },
+    {
+      'texto': 'Pergunta',
+      'respostas': [
+        {'texto': 'Opcao01', 'nota': 10},
+        {'texto': 'Opcao02', 'nota': 12},
+        {'texto': 'Opcao03', 'nota': 14},
+        {'texto': 'Opcao04', 'nota': 16},
+      ]
+    },
+    {
+      'texto': 'Pergunta',
+      'respostas': [
+        {'texto': 'Opcao01', 'nota': 10},
+        {'texto': 'Opcao02', 'nota': 12},
+        {'texto': 'Opcao03', 'nota': 14},
+        {'texto': 'Opcao04', 'nota': 16},
+      ]
+    },
+    {
+      'texto': 'Pergunta',
+      'respostas': [
+        {'texto': 'Opcao01', 'nota': 10},
+        {'texto': 'Opcao02', 'nota': 12},
+        {'texto': 'Opcao03', 'nota': 14},
+        {'texto': 'Opcao04', 'nota': 16},
+      ]
+    },
+    {
+      'texto': 'Pergunta',
+      'respostas': [
+        {'texto': 'Opcao01', 'nota': 10},
+        {'texto': 'Opcao02', 'nota': 12},
+        {'texto': 'Opcao03', 'nota': 14},
+        {'texto': 'Opcao04', 'nota': 16},
+      ]
+    },
   ];
 
   void aPergunta() {}
 
-  void perguntaRespondida() {}
+  void _responder() {
+    setState(() {
+      _pergunta++;
+      perguntaAtual = perguntaAtual = perguntas[_pergunta].cast()['texto'];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,82 +123,10 @@ class _GameState extends State<Game> {
             Questao(perguntaAtual = perguntas[_pergunta].cast()['texto']),
             Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Pergunta 01',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    style: TextButton.styleFrom(
-                        fixedSize: Size(295, 50),
-                        backgroundColor: Color(0xffF4A522),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30))),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Pergunta 02',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    style: TextButton.styleFrom(
-                        fixedSize: Size(295, 50),
-                        backgroundColor: Color(0xffF4A522),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30))),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Pergunta 03',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    style: TextButton.styleFrom(
-                        fixedSize: Size(295, 50),
-                        backgroundColor: Color(0xffF4A522),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30))),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Pergunta 04',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    style: TextButton.styleFrom(
-                        fixedSize: Size(295, 50),
-                        backgroundColor: Color(0xffF4A522),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30))),
-                  ),
-                ),
+                OpcoesModel('resposta 01', _responder),
+                OpcoesModel('resposta 02', _responder),
+                OpcoesModel('resposta 03', _responder),
+                OpcoesModel('resposta 04', _responder),
               ],
             ),
           ])
