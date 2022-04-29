@@ -14,13 +14,6 @@ class _GameState extends State<Game> {
 
   String perguntaAtual = '';
 
-  void _responder() {
-    setState(() {
-      _novaPergunta++;
-      // perguntaAtual = perguntaAtual = _perguntas[_novaPergunta].cast()['texto'];
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final List<Map<String, Object>> perguntas = [
@@ -61,6 +54,13 @@ class _GameState extends State<Game> {
         ]
       },
     ];
+    void _responder() {
+      _novaPergunta >= perguntas.length - 1
+          ? print('Finish')
+          : setState(() {
+              _novaPergunta++;
+            });
+    }
 
     List respostas = [];
 
