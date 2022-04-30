@@ -18,16 +18,18 @@ class _GameState extends State<Game> {
   Widget build(BuildContext context) {
     final List<Map<String, Object>> perguntas = [
       {
-        'texto': 'Pergunta5',
+        'texto':
+            'O primeiro campeão Brasieiro reconhecido pela CBF,na época torneio conhecido como Taça Brasil foi o time do:',
         'respostas': [
-          'Opcao0er3q1',
-          'Opcao0sdf2',
-          'Opcao03asd',
-          'Opcao0r3e4',
+          'Sport',
+          'Santos',
+          'Bahia',
+          'Palmeiras',
         ]
       },
       {
-        'texto': 'Pergunta4',
+        'texto':
+            'O Bahia é um time localizado no Estado da Bahia o qual possui grandes jogadores históricos como Nonato, Bobô, Marcelo Ramos, entre muitos outros. Contudo, existem aqueles que chegaram no seu máximo apogeu pelo clube conquistando façanhas como sendo o maior artilheiro de todos os tempos pelo clube independente de competição e o maior artilheiro do clube pela Série A do campeonato Brasileiro, são eles respectivamente: ',
         'respostas': [
           'Opcao05',
           'Opcao062',

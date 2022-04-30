@@ -12,7 +12,7 @@ class Questao extends StatelessWidget {
       child: Text(
         texto,
         style: const TextStyle(
-          fontSize: 20,
+          fontSize: 17,
         ),
         textAlign: TextAlign.center,
       ),
