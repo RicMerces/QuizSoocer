@@ -28,8 +28,7 @@ class _GameState extends State<Game> {
         ]
       },
       {
-        'texto':
-            'O Bahia é um time localizado no Estado da Bahia o qual possui grandes jogadores históricos como Nonato, Bobô, Marcelo Ramos, entre muitos outros. Contudo, existem aqueles que chegaram no seu máximo apogeu pelo clube conquistando façanhas como sendo o maior artilheiro de todos os tempos pelo clube independente de competição e o maior artilheiro do clube pela Série A do campeonato Brasileiro, são eles respectivamente: ',
+        'texto': 'O Bahia é um time  ',
         'respostas': [
           'Opcao05',
           'Opcao062',

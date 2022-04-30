@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizsoocer/pages/Game.dart';
+import 'package:quizsoocer/pages/Resultado.dart';
 import 'package:quizsoocer/pages/Splash.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class _MainState extends State<Quizsoocer> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Game(),
+      home: Resultado(),
     );
   }
 }
