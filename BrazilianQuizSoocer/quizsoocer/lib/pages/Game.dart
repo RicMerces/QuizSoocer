@@ -21,37 +21,40 @@ class _GameState extends State<Game> {
         'texto':
             'O primeiro campeão Brasieiro reconhecido pela CBF,na época torneio conhecido como Taça Brasil foi o time do:',
         'respostas': [
-          'Sport',
-          'Santos',
-          'Bahia',
-          'Palmeiras',
+          {'texto': 'Vasco', 'nota': 0},
+          {'texto': 'Santos', 'nota': 0},
+          {'texto': 'Bahia', 'nota': 10},
+          {'texto': 'Sport', 'nota': 0},
         ]
       },
       {
-        'texto': 'O Bahia é um time  ',
+        'texto':
+            'O primeiro campeão Brasieiro reconhecido pela CBF,na época torneio conhecido como Taça Brasil foi o time do:',
         'respostas': [
-          'Opcao05',
-          'Opcao062',
-          'Opcao0773',
-          'Opcao0884',
+          {'texto': 'Vasco', 'nota': 0},
+          {'texto': 'Santos', 'nota': 0},
+          {'texto': 'Bahia', 'nota': 10},
+          {'texto': 'Sport', 'nota': 0},
         ]
       },
       {
-        'texto': 'Pergunta3',
+        'texto':
+            'O primeiro campeão Brasieiro reconhecido pela CBF,na época torneio conhecido como Taça Brasil foi o time do:',
         'respostas': [
-          'Opcao0345221',
-          'Opcao03452',
-          'Opcao05563',
-          'Opcao0344',
+          {'texto': 'Vasco', 'nota': 0},
+          {'texto': 'Santos', 'nota': 0},
+          {'texto': 'Bahia', 'nota': 10},
+          {'texto': 'Sport', 'nota': 0},
         ]
       },
       {
-        'texto': 'Pergunta2',
+        'texto':
+            'O primeiro campeão Brasieiro reconhecido pela CBF,na época torneio conhecido como Taça Brasil foi o time do:',
         'respostas': [
-          'Opcao02342341',
-          'Opcao06542',
-          'Opcao0uuu3',
-          'Opcao04444',
+          {'texto': 'Vasco', 'nota': 0},
+          {'texto': 'Santos', 'nota': 0},
+          {'texto': 'Bahia', 'nota': 10},
+          {'texto': 'Sport', 'nota': 0},
         ]
       },
     ];
@@ -63,11 +66,8 @@ class _GameState extends State<Game> {
             });
     }
 
-    List respostas = [];
-
-    for (var textoResp in perguntas[_novaPergunta].cast()['respostas']) {
-      respostas.add(OpcoesModel(textoResp, _responder));
-    }
+    List<Map<String, Object>> respostas =
+        perguntas[_novaPergunta].cast()['respostas'];
 
     return Scaffold(
       body: Column(
@@ -85,22 +85,26 @@ class _GameState extends State<Game> {
                       )))
             ],
           ),
-          Column(children: [
-            Center(
-              child: Image.asset(
-                'assets/img/Component3.png',
+          Column(
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/img/Component3.png',
+                ),
               ),
-            ),
-            Text(
-              'Pergunta #${_novaPergunta + 1}',
-              style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+              Text(
+                'Pergunta #${_novaPergunta + 1}',
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Questao(perguntaAtual = perguntas[_novaPergunta].cast()['texto']),
-            ...respostas,
-          ])
+              Questao(perguntaAtual = perguntas[_novaPergunta].cast()['texto']),
+              ...respostas
+                  .map((x) => OpcoesModel(x['texto'].toString(), _responder))
+                  .toList(),
+            ],
+          )
         ],
       ),
     );

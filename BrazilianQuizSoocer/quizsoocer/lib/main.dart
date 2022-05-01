@@ -17,7 +17,7 @@ class _MainState extends State<Quizsoocer> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Resultado(),
+      home: Game(),
     );
   }
 }
